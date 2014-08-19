@@ -15,7 +15,7 @@ cas.enabled=false
 sso.hmac.secret = @SSO_HMAC_SECRET@
 
 ;Data Export Configuration
-csv.export.url = https://localhost:9005/fqe/rest/fqe/query/export/CSV
+csv.export.url = http://localhost:9000/fqe/rest/fqe/query/export/CSV
 
 ;Demo Configuration
 demo=true
