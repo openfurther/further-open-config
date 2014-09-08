@@ -113,7 +113,7 @@
     </bean>
 
     <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
-        <property name="maxConnections" value="8" />
+        <property name="maxConnections" value="10" />
         <property name="connectionFactory" ref="activemqConnectionFactory" />
 	<property name="idleTimeout" value="0" />
     </bean>
