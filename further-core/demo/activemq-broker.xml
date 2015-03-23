@@ -75,7 +75,7 @@
             http://activemq.apache.org/persistence.html 
         -->
         <persistenceAdapter>
-            <kahaDB directory="${karaf.data}/activemq/default/kahadb"/>
+            <kahaDB directory="${karaf.data}/activemq/default/kahadb" journalMaxFileLength="128mb" indexCacheSize="20000" failoverProducersAuditDepth="0" maxFailoverProducersToTrack="0"/>
         </persistenceAdapter>
 
        <!--
@@ -84,20 +84,21 @@
             
             http://activemq.apache.org/producer-flow-control.html
              
+	-->
         <systemUsage>
             <systemUsage>
                 <memoryUsage>
-                    <memoryUsage limit="20 mb"/>
+                    <memoryUsage limit="256 mb"/>
                 </memoryUsage>
                 <storeUsage>
-                    <storeUsage limit="1 gb" name="foo"/>
+                    <storeUsage limit="4 gb"/>
                 </storeUsage>
                 <tempUsage>
-                    <tempUsage limit="100 mb"/>
+                    <tempUsage limit="8 gb"/>
                 </tempUsage>
             </systemUsage>
         </systemUsage>
-        -->
+
 
         <!-- The transport connectors ActiveMQ will listen to -->
         <transportConnectors>
@@ -114,8 +115,8 @@
 
     <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
         <property name="maxConnections" value="10" />
+        <property name="idleTimeout" value="0" />
         <property name="connectionFactory" ref="activemqConnectionFactory" />
-	<property name="idleTimeout" value="0" />
     </bean>
 
     <bean id="resourceManager" class="org.apache.activemq.pool.ActiveMQResourceManager" init-method="recoverResource">
