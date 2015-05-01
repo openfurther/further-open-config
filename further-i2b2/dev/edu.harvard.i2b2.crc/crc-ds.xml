@@ -13,7 +13,7 @@
 	<!-- sample oracle data source config -->
 	<local-tx-datasource>
 		<jndi-name>QueryToolDemoDS</jndi-name>
-		<connection-url>jdbc:oracle:thin:@localhost:1521:xe</connection-url>
+		<connection-url>jdbc:oracle:thin:@dev-db.further.utah.edu:1521:further</connection-url>
 		<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
 		<user-name>i2b2demodata</user-name>
 		<password>@I2B2DEMODATA@</password>
